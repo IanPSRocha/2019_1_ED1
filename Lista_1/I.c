@@ -2,11 +2,15 @@
 #include <string.h>
 
 int main(){
-    int n, tamanho = 0, teste;
-    char string[1005];
-    while(scanf("%[\n]%*c", string) != EOF){
-        printf("%s", string);
+    int cont = 0;
+    char string[102];
+    while(scanf("%[^\n]%*c", string) != EOF){
+        for(int i = 0; i < 1005; i++){
+            if(string[i] == 111){
+                cont++;
+            }
+        }
     }
-
+    printf("%d\n", cont);
 return 0;
 }

@@ -1,3 +1,9 @@
-Oi aqui eh o seu professor
-Diga o que voce quer de natal hoje
-praca, maca, bacana, alho, cebola
+3 3
+Brasil 3
+Australia 3
+Croacia 3
+3 3
+Brasil 5
+Japao 1
+Australia 1
+0 0

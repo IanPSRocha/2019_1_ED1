@@ -1,0 +1,14 @@
+1) "ptr++" = Esse comando avança de 4 em 4 unidades na memória, já que está atribuido como um ponteiro de inteiro
+"(*ptr)++" = Soma o valor que ele está apontando em 1 unidade
+"*(ptr++)" = o ponteiro é incrementado em 4 unidades por ser um ponteiro de inteiro
+"*(ptr+10)" = avança 10 posições a frente de ptr, não incrementa o ptr
+
+2)Primeiro P armazena o endereço de Y, depois, X armazena o ponteiro de P(indiretamente armazenando Y e assumindo valor 0).
+Ocorre 2 operações na qual X assume valor 3(primeiro virando 4 depois subtraindo 1) e *P(indiretamente sendo Y) soma +1, totalizando 1.
+Ocorre uma soma entre *P(mais uma vez, é um ponteiro que está apontando para o valor da variavel y) = 1 e X = 3, totalizando 4;
+
+3)Solução está no código nomeado "q3.c"
+
+4)Solução está no código nomeado "q4.c"
+
+5)Solução está no código nomeado "q5.c"

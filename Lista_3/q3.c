@@ -3,7 +3,6 @@
 
 void hm(int min,int *h,int *m);
 
-
 int main(){
     int min, h = 0, m;
 

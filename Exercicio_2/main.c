@@ -86,12 +86,13 @@ void opcao2(){
 
     printf("Digite quantos elementos você deseja remover:\n");
     scanf("%d", &quant);
-    if(fila_int_vazia){
+    system("clear");
+    if(fila_int_vazia()){
         printf("A fila está vazia!!\n");
     }
     else{
         for(int i = 0; i < quant; i++){
-            if(fila_int_vazia){
+            if(fila_int_vazia()){
                 printf("Impossível remover mais elementos, a fila está vazia!!\n");
                 break;
             }

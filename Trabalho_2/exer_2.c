@@ -1,6 +1,11 @@
 #include <stdio.h>
 #include <stdlib.h>
 
+#define N 505
+
+char pos[N];
+int q = 0;
+
 typedef struct reg {
     char conteudo;
     struct reg *prox;
@@ -14,6 +19,8 @@ void empilha(char x);
 char desempilha();
 int verifica(char *expo);
 void esvazia();
+void converte(char *expo);
+int prioridade(char n);
 
 int main(){
     criapilha();
@@ -21,10 +28,14 @@ int main(){
     scanf("%s", expo);
 
     if(verifica(expo)){
-        printf("sim\n");
+        converte(expo);
+        for(int i = 0; pos[i] != '\0'; i++){
+            printf("%c", pos[i]);
+        }
+        printf("\n");
     }
     else{
-        printf("nao\n");
+        printf("incorretamente parentizada\n");
     }
 
     esvazia();
@@ -94,5 +105,78 @@ void esvazia(){
         lixo = prox;
         prox = lixo->prox;
         free(lixo);
+    }
+}
+
+void converte(char *expo){
+    for(int i = 0; expo[i] != '\0'; i++){
+        if(expo[i] >= 65 && expo[i] <= 90){
+            pos[q] = expo[i];
+            q++;
+        }
+        else{
+            if(expo[i] == '('){
+                empilha(expo[i]);
+            }
+            else{
+                if(expo[i] == ')'){
+                    char op = desempilha();
+                    while(op != '('){
+                        pos[q] = op;
+                        q++;
+                        op = desempilha();
+                    }
+                }
+                else{
+                    char t = desempilha();
+                    if(prioridade(expo[i]) == 3){
+                        empilha(t);
+                        empilha(expo[i]);
+                    }
+                    else{
+                        if(prioridade(expo[i]) > prioridade(t)){
+                            empilha(t);
+                            empilha(expo[i]);
+                        }
+                        else{
+                            while(prioridade(expo[i]) <= prioridade(t)){
+                                pos[q] = t;
+                                q++;
+                                t = desempilha();
+                            }
+                            empilha(t);
+                            empilha(expo[i]);
+                        }
+                    }
+                }
+            }
+        }
+    }
+    while(!pilha_vazia()){
+        pos[q] = desempilha();
+        q++;
+    }
+}
+
+int prioridade(char n){
+    switch(n){
+        case '+':
+            return 1;
+            break;
+        case '-':
+            return 1;
+            break;
+        case '*':
+            return 2;
+            break;
+        case '/':
+            return 2;
+            break;
+        case '^':
+            return 3;
+            break;        
+        default:
+            return 0;
+            break;
     }
 }

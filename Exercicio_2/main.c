@@ -23,9 +23,8 @@ void menu(){
     printf("\t Por favor selecione a opção desejada:\n");
     printf(" (1) Inserir elementos na fila\n");
     printf(" (2) Remover elementos da fila\n");
-    printf(" (3) Reiniciar a fila\n");
-    printf(" (4) Imprimir a Fila\n");
-    printf(" (5) Sair\n");
+    printf(" (3) Imprimir a Fila\n");
+    printf(" (4) Sair\n");
     printf("=======================================================\n");
     printf("Digite a opção:");
 }
@@ -33,7 +32,7 @@ void menu(){
 void acessaMenu(){
     char opcao = '0';
     menu();
-    while(opcao != '5'){
+    while(opcao != '4'){
         scanf(" %c", &opcao);
         switch(opcao){
             case '1':
@@ -49,10 +48,6 @@ void acessaMenu(){
                 menu();
                 break;
             case '4':
-                opcao4();
-                menu();
-                break;
-            case '5':
                 system("clear");
                 break;
             default:
@@ -105,16 +100,6 @@ void opcao2(){
 }
 
 void opcao3(){
-    cria_fila_int();
-    for(int i = 0; i < 10; i++){
-        enfileira_int(0);
-    }
-    cria_fila_int();
-    system("clear");
-    printf("Fila Reinicializada!!\n\n\n");
-}
-
-void opcao4(){
     system("clear");
     print_fila();
 }
